@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Chivo Mono', monospace;
+  color: #333;
+  background-color: #f4f4f8;
+}
+
+.loading {
+  position: sticky;
+  top: 0;
+}
+
+.detail-page__action,
+.homepage__action,
+.add-new-page__action {
+  position: fixed;
+  display: flex;
+  gap: 16px;
+  bottom: 32px;
+  right: 32px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border: 4px solid;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: white;
+  color: #4877fd;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.add-new-page__input .add-new-page__input__title {
+  width: 100%;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.add-new-page__input__title::placeholder {
+  color: #747789;
+}
+
+.add-new-page__input .add-new-page__input__body {
+  width: 100%;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  min-height: 300px;
+}
+
+[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: #747789;
+}
+
+@media screen and (min-width: 990px) {
+  .leptop {
+    justify-content: flex-end; 
+  }
+}
