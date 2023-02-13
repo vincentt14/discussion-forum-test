@@ -23,25 +23,25 @@ describe('Login spec', () => {
       expect(str).to.equal('"password" is not allowed to be empty');
     });
   });
-});
 
-it('should display alert when email and password are wrong', () => {
-  cy.get('input[placeholder="Email"]').type('testuser@gmail.com');
-  cy.get('input[placeholder="Password"]').type('wrong_password');
+  it('should display alert when email and password are wrong', () => {
+    cy.get('input[placeholder="Email"]').type('testuser@gmail.com');
+    cy.get('input[placeholder="Password"]').type('wrong_password');
 
-  cy.get('button').contains(/^Login$/).click();
+    cy.get('button').contains(/^Login$/).click();
 
-  cy.on('window:alert', (str) => {
-    expect(str).tp.equal('email or password is wrong');
+    cy.on('window:alert', (str) => {
+      expect(str).tp.equal('email or password is wrong');
+    });
   });
-});
 
-it('should display homepage when username and password are correct', () => {
-  cy.get('input[placeholder="Email"]').type('123321321@gmail.com');
-  cy.get('input[placeholder="Password"]').type('123321321');
+  it('should display homepage when username and password are correct', () => {
+    cy.get('input[placeholder="Email"]').type('haloinitest@gmail.com');
+    cy.get('input[placeholder="Password"]').type('haloinitest');
 
-  cy.get('button').contains(/^Login$/).click();
+    cy.get('button').contains(/^Login$/).click();
 
-  // verif kalau elemen home uda muncul
-  cy.get('nav').contains(/^Forum$/).should('be.visible');
+    // verif kalau elemen home uda muncul
+    cy.get('nav').contains(/^Forum$/).should('be.visible');
+  });
 });
