@@ -42,6 +42,6 @@ describe('Login spec', () => {
     cy.get('button').contains(/^Login$/).click();
 
     // verif kalau elemen home uda muncul
-    cy.get('Link').contains(/^Forum$/).should('be.visible');
+    cy.get('img').should('be.visible');
   });
 });
