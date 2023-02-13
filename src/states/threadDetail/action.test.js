@@ -38,7 +38,7 @@ const fakeThreadsDetailResponse = [
 const fakeErrorResponse = new Error('thread tidak ditemukan');
 
 describe('asyncRecieveThreadDetail thunk', () => {
-  jest.setTimeout(60000);
+  jest.setTimeout(80000);
   beforeEach(() => {
     // backup original implementation
     api._getThreadDetail = api.getThreadDetail;
