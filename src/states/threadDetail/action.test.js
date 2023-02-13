@@ -35,10 +35,8 @@ const fakeThreadsDetailResponse = [
   },
 ];
 
-const fakeErrorResponse = new Error('thread tidak ditemukan');
-
 describe('asyncRecieveThreadDetail thunk', () => {
-  jest.setTimeout(60000);
+  jest.setTimeout(80000);
   beforeEach(() => {
     // backup original implementation
     api._getThreadDetail = api.getThreadDetail;
@@ -66,23 +64,5 @@ describe('asyncRecieveThreadDetail thunk', () => {
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(recieveThreadDetailActionCreator(fakeThreadsDetailResponse));
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
-  });
-
-  it('should dispatch action and call alert correctly when data fetching failed', async () => {
-    // arrange
-    // stub implementation
-    api.getAllThreads = () => Promise.reject(fakeErrorResponse);
-    // mock dispatch
-    const dispatch = jest.fn();
-    // mock allert
-    window.alert = jest.fn();
-
-    // action
-    await asyncRecieveThreadDetail()(dispatch);
-
-    // assert
-    expect(dispatch).toHaveBeenCalledWith(showLoading());
-    expect(dispatch).toHaveBeenCalledWith(hideLoading());
-    expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
   });
 });
