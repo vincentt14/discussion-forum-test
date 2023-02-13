@@ -23,7 +23,7 @@ function HomePage() {
 
   return (
     <section className="container">
-      <h1 className="my-3">Diskusi tersedia</h1>
+      <h1 className="my-3">Diskusi yang tersedia</h1>
       <ThreadLists threads={threadList} />
       <AddButton />
     </section>
